@@ -54,8 +54,9 @@ REEF is a GPU-accelerated DNN inference scheduling system that supports instant 
 └── src                           # source code
 │   ├── eval                      # Evaluation source code
 │   └── reef                      # REEF source code
-└── env.sh                        # Environment variables
 │
+├── reef-env                      # customized ROCm for REEF
+└── env.sh                        # Environment variables
 ```
 
 ## Paper's Hardware Configuration
