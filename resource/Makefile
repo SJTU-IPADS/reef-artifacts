@@ -35,7 +35,7 @@ profile:
 	    profiler $$dir;\
 	done
 
-build_subdir: ${CURRENT_DIR}.raw.co ${CURRENT_DIR}.trans.co ${CURRENT_DIR}.preempt.co ${CURRENT_DIR}.be.co ${CURRENT_DIR}.pointer.co
+build_subdir: ${CURRENT_DIR}.raw.co ${CURRENT_DIR}.trans.co ${CURRENT_DIR}.preempt.co ${CURRENT_DIR}.be.co ${CURRENT_DIR}.pointer.co ${CURRENT_DIR}.ptropt.co
 
 transform_subdir: ${CURRENT_DIR}-hip-amdgcn-amd-amdhsa-gfx906.s
 	python3 ../../script/transform_kernel.py ${CURRENT_DIR}.cu ${CURRENT_DIR}.json ${CURRENT_DIR}-hip-amdgcn-amd-amdhsa-gfx906.s

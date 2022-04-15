@@ -1,6 +1,7 @@
 #include <hip/hip_runtime.h>
 
 extern "C" __global__ void fused_nn_max_pool2d_kernel0(float* __restrict__ placeholder, float* __restrict__ tensor) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float tensor_local[1];
   tensor_local[(0)] = -3.402823e+38f;
   for (int dh = 0; dh < 3; ++dh) {
@@ -12,6 +13,7 @@ extern "C" __global__ void fused_nn_max_pool2d_kernel0(float* __restrict__ place
 }
 
 extern "C" __global__ void fused_nn_softmax_kernel0(float* __restrict__ placeholder, float* __restrict__ T_softmax_norm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float normal_reduce_temp0[1];
   float red_buf0[1];
   float T_softmax_exp[16];
@@ -80,6 +82,7 @@ extern "C" __global__ void fused_nn_softmax_kernel0(float* __restrict__ placehol
 }
 
 extern "C" __global__ void fused_nn_conv2d_nn_relu_3_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[2];
   __shared__ float pad_temp_shared[36];
   __shared__ float placeholder_shared[200];
@@ -125,6 +128,7 @@ extern "C" __global__ void fused_nn_conv2d_nn_relu_3_kernel0(float* __restrict__
 }
 
 extern "C" __global__ void fused_nn_conv2d_nn_relu_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[192];
   __shared__ float placeholder_shared[2304];
@@ -156,6 +160,7 @@ extern "C" __global__ void fused_nn_conv2d_nn_relu_1_kernel0(float* __restrict__
 }
 
 extern "C" __global__ void fused_nn_dense_add_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float T_dense_rf[1];
   float red_buf0[1];
   __shared__ float T_dense[1];
@@ -189,6 +194,7 @@ extern "C" __global__ void fused_nn_dense_add_kernel0(float* __restrict__ placeh
 }
 
 extern "C" __global__ void fused_nn_max_pool2d_2_kernel0(float* __restrict__ placeholder, float* __restrict__ tensor) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float tensor_local[1];
   tensor_local[(0)] = -3.402823e+38f;
   for (int dh = 0; dh < 3; ++dh) {
@@ -200,6 +206,7 @@ extern "C" __global__ void fused_nn_max_pool2d_2_kernel0(float* __restrict__ pla
 }
 
 extern "C" __global__ void fused_nn_dense_add_nn_relu_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float T_dense_rf[1];
   float red_buf0[1];
   __shared__ float T_dense[1];
@@ -233,6 +240,7 @@ extern "C" __global__ void fused_nn_dense_add_nn_relu_1_kernel0(float* __restric
 }
 
 extern "C" __global__ void fused_nn_conv2d_nn_relu_4_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[315];
   __shared__ float placeholder_shared[24];
@@ -705,6 +713,7 @@ extern "C" __global__ void fused_nn_conv2d_nn_relu_4_kernel0(float* __restrict__
 }
 
 extern "C" __global__ void fused_nn_max_pool2d_1_kernel0(float* __restrict__ placeholder, float* __restrict__ tensor) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float tensor_local[1];
   tensor_local[(0)] = -3.402823e+38f;
   for (int dh = 0; dh < 3; ++dh) {
@@ -716,6 +725,7 @@ extern "C" __global__ void fused_nn_max_pool2d_1_kernel0(float* __restrict__ pla
 }
 
 extern "C" __global__ void fused_nn_conv2d_nn_relu_2_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[192];
   __shared__ float placeholder_shared[2304];
@@ -747,10 +757,12 @@ extern "C" __global__ void fused_nn_conv2d_nn_relu_2_kernel0(float* __restrict__
 }
 
 extern "C" __global__ void fused_nn_batch_flatten_kernel0(float* __restrict__ tensor, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   tensor[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))] = placeholder[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))];
 }
 
 extern "C" __global__ void fused_nn_conv2d_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[192];
   __shared__ float placeholder_shared[2304];
@@ -782,6 +794,7 @@ extern "C" __global__ void fused_nn_conv2d_nn_relu_kernel0(float* __restrict__ p
 }
 
 extern "C" __global__ void fused_nn_dense_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float T_dense_rf[1];
   float red_buf0[1];
   __shared__ float T_dense[1];
@@ -820,10 +833,10 @@ extern "C" __global__ void proxy_kernel_##idx(\
   void* func, float** param) \
 {\
   asm volatile(\
-    "  s_load_dwordx4 s[14:17], s[4:5], 0x0\n"\
+    "  s_load_dwordx4 s[16:19], s[4:5], 0x0\n"\
     "  s_waitcnt lgkmcnt(0)\n"\
-    "  s_mov_b64 s[4:5], s[16:17]\n"\
-    "  s_setpc_b64 s[14:15]\n"\
+    "  s_mov_b64 s[4:5], s[18:19]\n"\
+    "  s_setpc_b64 s[16:17]\n"\
     "  s_endpgm\n"\
   );\
 }    

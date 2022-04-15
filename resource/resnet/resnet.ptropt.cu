@@ -1,6 +1,7 @@
 #include <hip/hip_runtime.h>
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_1_kernel0(float* __restrict__ placeholder, float* __restrict__ data_pack) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float d[16];
   float data_pack_local[16];
   for (int eps = 0; eps < 4; ++eps) {
@@ -96,6 +97,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_softmax_kernel0(float* __restrict__ placeholder, float* __restrict__ T_softmax_norm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float normal_reduce_temp0[1];
   float red_buf0[1];
   float T_softmax_exp[16];
@@ -164,6 +166,7 @@ extern "C" __global__ void fused_nn_softmax_kernel0(float* __restrict__ placehol
 }
 
 extern "C" __global__ void fused_add_nn_relu_1_kernel0(float* __restrict__ T_relu, float* __restrict__ placeholder, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   for (int ax0_ax1_fused_ax2_fused_ax3_fused_outer = 0; ax0_ax1_fused_ax2_fused_ax3_fused_outer < 4; ++ax0_ax1_fused_ax2_fused_ax3_fused_outer) {
     if ((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) < 200704) {
       T_relu[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] = max((placeholder[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] + placeholder1[(((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) / 196))]), 0.000000e+00f);
@@ -172,6 +175,7 @@ extern "C" __global__ void fused_add_nn_relu_1_kernel0(float* __restrict__ T_rel
 }
 
 extern "C" __global__ void fused_nn_global_avg_pool2d_kernel0(float* __restrict__ placeholder, float* __restrict__ tensor) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float tensor1[1];
   tensor1[(0)] = 0.000000e+00f;
   for (int rv0 = 0; rv0 < 7; ++rv0) {
@@ -187,6 +191,7 @@ extern "C" __global__ void fused_nn_global_avg_pool2d_kernel0(float* __restrict_
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_2_kernel2(float* __restrict__ bgemm, float* __restrict__ T_relu, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float inverse[4];
   inverse[(0)] = 0.000000e+00f;
   inverse[(0)] = (inverse[(0)] + bgemm[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))]);
@@ -236,6 +241,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_add_14_kernel0(float* __restrict__ T_add, float* __restrict__ placeholder, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   for (int ax0_ax1_fused_ax2_fused_ax3_fused_outer = 0; ax0_ax1_fused_ax2_fused_ax3_fused_outer < 3; ++ax0_ax1_fused_ax2_fused_ax3_fused_outer) {
     if ((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) < 150528) {
       T_add[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] = (placeholder[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] + placeholder1[(((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) / 50176))]);
@@ -244,6 +250,7 @@ extern "C" __global__ void fused_add_14_kernel0(float* __restrict__ T_add, float
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ data_pack) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float d[16];
   float data_pack_local[16];
   for (int eps = 0; eps < 4; ++eps) {
@@ -339,6 +346,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_7_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[4];
   __shared__ float pad_temp_shared[256];
   __shared__ float placeholder_shared[512];
@@ -427,6 +435,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_7_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_3_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[8];
   __shared__ float pad_temp_shared[512];
   __shared__ float placeholder_shared[1024];
@@ -587,6 +596,7 @@ extern "C" __global__ void fused_nn_conv2d_add_3_kernel0(float* __restrict__ pla
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_kernel2(float* __restrict__ bgemm, float* __restrict__ T_relu, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float inverse[4];
   inverse[(0)] = 0.000000e+00f;
   inverse[(0)] = (inverse[(0)] + bgemm[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))]);
@@ -640,6 +650,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_1_kernel1(float* __restrict__ placeholder, float* __restrict__ data_pack, float* __restrict__ bgemm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float bgemm_local[4];
   __shared__ float placeholder_shared[512];
   __shared__ float data_pack_shared[1568];
@@ -801,6 +812,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_2_kernel0(float* __restrict__ placeholder, float* __restrict__ data_pack) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float d[16];
   float data_pack_local[16];
   for (int eps = 0; eps < 4; ++eps) {
@@ -896,6 +908,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2, float* __restrict__ placeholder3) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[8];
   __shared__ float pad_temp_shared[896];
   __shared__ float placeholder_shared[256];
@@ -938,6 +951,7 @@ extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_1_kernel0(float* __re
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_4_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[2];
   __shared__ float pad_temp_shared[896];
   __shared__ float placeholder_shared[256];
@@ -995,6 +1009,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_4_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_2_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[8];
   __shared__ float pad_temp_shared[896];
   __shared__ float placeholder_shared[256];
@@ -1037,6 +1052,7 @@ extern "C" __global__ void fused_nn_conv2d_add_2_kernel0(float* __restrict__ pla
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_3_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[864];
   __shared__ float placeholder_shared[1024];
@@ -1070,6 +1086,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_3_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[2];
   __shared__ float pad_temp_shared[784];
   __shared__ float placeholder_shared[256];
@@ -1127,6 +1144,7 @@ extern "C" __global__ void fused_nn_conv2d_add_kernel0(float* __restrict__ place
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[416];
   __shared__ float placeholder_shared[1024];
@@ -1202,6 +1220,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_1_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_add_nn_relu_kernel0(float* __restrict__ T_relu, float* __restrict__ placeholder, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   for (int ax0_ax1_fused_ax2_fused_ax3_fused_outer = 0; ax0_ax1_fused_ax2_fused_ax3_fused_outer < 2; ++ax0_ax1_fused_ax2_fused_ax3_fused_outer) {
     if ((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) < 100352) {
       T_relu[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] = max((placeholder[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] + placeholder1[(((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) / 49))]), 0.000000e+00f);
@@ -1210,6 +1229,7 @@ extern "C" __global__ void fused_add_nn_relu_kernel0(float* __restrict__ T_relu,
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_2_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[448];
   __shared__ float placeholder_shared[256];
@@ -1248,6 +1268,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_2_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_2_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2, float* __restrict__ placeholder3) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[8];
   __shared__ float pad_temp_shared[512];
   __shared__ float placeholder_shared[1024];
@@ -1408,6 +1429,7 @@ extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_2_kernel0(float* __re
 }
 
 extern "C" __global__ void fused_nn_conv2d_2_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ compute) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute_local[2];
   __shared__ float pad_temp_shared[1296];
   __shared__ float placeholder_shared[1024];
@@ -1486,6 +1508,7 @@ extern "C" __global__ void fused_nn_conv2d_2_kernel0(float* __restrict__ placeho
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_3_kernel0(float* __restrict__ placeholder, float* __restrict__ data_pack) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float d[36];
   float data_pack_local[36];
   for (int eps = 0; eps < 6; ++eps) {
@@ -2213,6 +2236,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2, float* __restrict__ placeholder3) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[4];
   __shared__ float pad_temp_shared[1568];
   __shared__ float placeholder_shared[512];
@@ -2306,6 +2330,7 @@ extern "C" __global__ void fused_nn_conv2d_add_add_nn_relu_kernel0(float* __rest
 }
 
 extern "C" __global__ void fused_nn_dense_add_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float T_dense_rf[1];
   float red_buf0[1];
   __shared__ float T_dense[1];
@@ -2339,6 +2364,7 @@ extern "C" __global__ void fused_nn_dense_add_kernel0(float* __restrict__ placeh
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_3_kernel1(float* __restrict__ placeholder, float* __restrict__ data_pack, float* __restrict__ bgemm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float bgemm_local[4];
   __shared__ float placeholder_shared[2048];
   __shared__ float data_pack_shared[896];
@@ -2496,6 +2522,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_6_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[4];
   __shared__ float pad_temp_shared[256];
   __shared__ float placeholder_shared[512];
@@ -2584,6 +2611,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_6_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ compute) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute_local[8];
   __shared__ float pad_temp_shared[1320];
   __shared__ float placeholder_shared[512];
@@ -2701,6 +2729,7 @@ extern "C" __global__ void fused_nn_conv2d_1_kernel0(float* __restrict__ placeho
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_kernel1(float* __restrict__ placeholder, float* __restrict__ data_pack, float* __restrict__ bgemm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float bgemm_local[4];
   __shared__ float placeholder_shared[1024];
   __shared__ float data_pack_shared[256];
@@ -2788,6 +2817,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_add_nn_relu_2_kernel0(float* __restrict__ T_relu, float* __restrict__ placeholder, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   for (int ax0_ax1_fused_ax2_fused_ax3_fused_outer = 0; ax0_ax1_fused_ax2_fused_ax3_fused_outer < 7; ++ax0_ax1_fused_ax2_fused_ax3_fused_outer) {
     if ((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) < 401408) {
       T_relu[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] = max((placeholder[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] + placeholder1[(((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) / 784))]), 0.000000e+00f);
@@ -2796,6 +2826,7 @@ extern "C" __global__ void fused_add_nn_relu_2_kernel0(float* __restrict__ T_rel
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[1];
   __shared__ float pad_temp_shared[6272];
   __shared__ float placeholder_shared[1024];
@@ -2977,6 +3008,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_kernel0(float* __restrict
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_8_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[16];
   __shared__ float pad_temp_shared[793];
   __shared__ float placeholder_shared[3136];
@@ -3018,6 +3050,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_8_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_nn_relu_5_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[2];
   __shared__ float pad_temp_shared[880];
   __shared__ float placeholder_shared[1024];
@@ -3081,6 +3114,7 @@ extern "C" __global__ void fused_nn_conv2d_add_nn_relu_5_kernel0(float* __restri
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_1_kernel2(float* __restrict__ bgemm, float* __restrict__ T_relu, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float inverse[4];
   inverse[(0)] = 0.000000e+00f;
   inverse[(0)] = (inverse[(0)] + bgemm[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))]);
@@ -3130,6 +3164,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_3_kernel2(float* __restrict__ bgemm, float* __restrict__ T_relu, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float inverse[16];
   inverse[(0)] = 0.000000e+00f;
   inverse[(0)] = (inverse[(0)] + bgemm[(((((int)blockIdx.x) * 128) + ((int)threadIdx.x)))]);
@@ -3479,6 +3514,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_add_nn_relu_3_kernel0(float* __restrict__ T_relu, float* __restrict__ placeholder, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   for (int ax0_ax1_fused_ax2_fused_ax3_fused_outer = 0; ax0_ax1_fused_ax2_fused_ax3_fused_outer < 13; ++ax0_ax1_fused_ax2_fused_ax3_fused_outer) {
     if ((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) < 802816) {
       T_relu[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] = max((placeholder[((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)))] + placeholder1[(((((ax0_ax1_fused_ax2_fused_ax3_fused_outer * 65536) + (((int)blockIdx.x) * 256)) + ((int)threadIdx.x)) / 3136))]), 0.000000e+00f);
@@ -3487,6 +3523,7 @@ extern "C" __global__ void fused_add_nn_relu_3_kernel0(float* __restrict__ T_rel
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_multiply_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_relu, float* __restrict__ placeholder2, float* __restrict__ placeholder3, float* __restrict__ placeholder4) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[2];
   __shared__ float pad_temp_shared[784];
   __shared__ float placeholder_shared[256];
@@ -3544,6 +3581,7 @@ extern "C" __global__ void fused_nn_conv2d_add_multiply_add_nn_relu_kernel0(floa
 }
 
 extern "C" __global__ void fused_nn_max_pool2d_add_nn_relu_kernel0(float* __restrict__ placeholder, float* __restrict__ T_relu, float* __restrict__ placeholder1) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float tensor[1];
   tensor[(0)] = -3.402823e+38f;
   for (int dh = 0; dh < 3; ++dh) {
@@ -3555,6 +3593,7 @@ extern "C" __global__ void fused_nn_max_pool2d_add_nn_relu_kernel0(float* __rest
 }
 
 extern "C" __global__ void fused_nn_conv2d_3_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ compute) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute_local[1];
   __shared__ float pad_temp_shared[2704];
   __shared__ float placeholder_shared[256];
@@ -3634,10 +3673,12 @@ extern "C" __global__ void fused_nn_conv2d_3_kernel0(float* __restrict__ placeho
 }
 
 extern "C" __global__ void fused_nn_batch_flatten_kernel0(float* __restrict__ tensor, float* __restrict__ placeholder) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   tensor[(((((int)blockIdx.x) * 256) + ((int)threadIdx.x)))] = placeholder[(((((int)blockIdx.x) * 256) + ((int)threadIdx.x)))];
 }
 
 extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_transform_add_nn_relu_2_kernel1(float* __restrict__ placeholder, float* __restrict__ data_pack, float* __restrict__ bgemm) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float bgemm_local[8];
   __shared__ float placeholder_shared[512];
   __shared__ float data_pack_shared[3136];
@@ -3801,6 +3842,7 @@ extern "C" __global__ void fused_nn_contrib_conv2d_winograd_without_weight_trans
 }
 
 extern "C" __global__ void fused_nn_conv2d_add_1_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ T_add, float* __restrict__ placeholder2) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute[4];
   __shared__ float pad_temp_shared[1568];
   __shared__ float placeholder_shared[512];
@@ -3894,6 +3936,7 @@ extern "C" __global__ void fused_nn_conv2d_add_1_kernel0(float* __restrict__ pla
 }
 
 extern "C" __global__ void fused_nn_conv2d_kernel0(float* __restrict__ placeholder, float* __restrict__ placeholder1, float* __restrict__ compute) {
+    if((int)threadIdx.x + (int)threadIdx.y + (int)threadIdx.z + (int)blockIdx.x + (int)blockIdx.y + (int)blockIdx.z < 0) return;
   float compute_local[8];
   __shared__ float pad_temp_shared[512];
   __shared__ float placeholder_shared[1024];
@@ -4059,10 +4102,10 @@ extern "C" __global__ void proxy_kernel_##idx(\
   void* func, float** param) \
 {\
   asm volatile(\
-    "  s_load_dwordx4 s[14:17], s[4:5], 0x0\n"\
+    "  s_load_dwordx4 s[16:19], s[4:5], 0x0\n"\
     "  s_waitcnt lgkmcnt(0)\n"\
-    "  s_mov_b64 s[4:5], s[16:17]\n"\
-    "  s_setpc_b64 s[14:15]\n"\
+    "  s_mov_b64 s[4:5], s[18:19]\n"\
+    "  s_setpc_b64 s[16:17]\n"\
     "  s_endpgm\n"\
   );\
 }    
