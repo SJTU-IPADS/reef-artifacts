@@ -2,8 +2,7 @@
 
 This repository contains scripts and instructions for reproducing the experiments in our OSDI '22 paper "Achieving μs-scale Preemption for Concurrent GPU-accelerated DNN Inferences".
 
-REEF is a GPU-accelerated DNN inference scheduling system that supports instant kernel preemption and biased concurrent execution in GPU scheduling. 
-REEF divides DNN inference tasks into two priorities: real-time tasks and best-effort tasks. The scheduling goal of REEF is to minimize the latency of real-time task and improve the throughput as much as possible.
+REEF is a GPU-accelerated DNN inference scheduling system that supports instant kernel preemption and biased concurrent execution in GPU scheduling. REEF divides DNN inference tasks into two priorities: real-time tasks and best-effort tasks. The scheduling goal of REEF is to minimize the latency of real-time task and improve the throughput as much as possible.
 
 ## Table of Contents
 
@@ -115,7 +114,6 @@ $ echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/rocprofiler/bin:/opt/rocm/open
 
 ### Build & Install the Customized Kernel Driver
 ```sh
-$ git clone https://github.com/SJTU-IPADS/reef-env.git
 $ cd reef-env/amdgpu-dkms
 # Notice: The script will reboot
 $ ./update-kern-module.sh
