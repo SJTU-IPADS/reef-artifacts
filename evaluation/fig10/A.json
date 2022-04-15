@@ -1,0 +1,15 @@
+{
+    "time": 1,
+    "rt": [
+        {
+            "name": "vgg",
+            "frequency": 100
+        }
+    ],
+    "be": [
+        {
+            "name": "resnet152",
+            "frequency": 100
+        }
+    ]
+}

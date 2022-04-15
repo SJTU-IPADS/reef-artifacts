@@ -1,0 +1,47 @@
+{
+    "time": 1,
+    "rt": [
+        {
+            "name": "vgg",
+            "frequency": 20
+        },
+        {
+            "name": "resnet152",
+            "frequency": 20
+        },
+        {
+            "name": "densenet",
+            "frequency": 20
+        },
+        {
+            "name": "inception",
+            "frequency": 20
+        },
+        {
+            "name": "bert",
+            "frequency": 20
+        }
+    ],
+    "be": [
+        {
+            "name": "densenet",
+            "frequency": 100
+        },
+        {
+            "name": "densenet",
+            "frequency": 100
+        },
+        {
+            "name": "vgg",
+            "frequency": 100
+        },
+        {
+            "name": "bert",
+            "frequency": 100
+        },
+        {
+            "name": "resnet",
+            "frequency": 100
+        }
+    ]
+}

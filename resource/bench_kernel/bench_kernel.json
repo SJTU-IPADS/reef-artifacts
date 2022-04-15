@@ -1,0 +1,45 @@
+{
+    "storage": [
+        {
+            "name": "n",
+            "stype": "float32",
+            "size": 8192
+        },
+        {
+            "name": "b",
+            "stype": "float32",
+            "size": 8192
+        },
+        {
+            "name": "c",
+            "stype": "float32",
+            "size": 8192
+        }
+    ],
+    "kernels": [
+        {
+            "name": "loop",
+            "launch_params": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+            ],
+            "args": [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "args": [
+        0,
+        1,
+        2
+    ],
+    "shared_memory": {
+        "loop": 1024
+    }
+}
