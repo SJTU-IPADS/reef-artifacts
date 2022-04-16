@@ -16,3 +16,4 @@ evaluation/*/*.dat
 evaluation/*/*.eps
 script/__pycache__
 script/rt_dnn/__pycache__
+src/reef/rpc/*
