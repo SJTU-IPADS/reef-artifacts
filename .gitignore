@@ -14,6 +14,7 @@ cmake-build-debug
 evaluation/*/*.pdf
 evaluation/*/*.dat
 evaluation/*/*.eps
+evaluation/*/*.tmp
 script/__pycache__
 script/rt_dnn/__pycache__
 src/reef/rpc/*

@@ -137,7 +137,7 @@ def SubplotC():
     generate_plot(exe_lat, preempt_lat)
 
 def SubplotD():
-    conf_file_path = "/tmp/fig1d_conf_file.json"
+    conf_file_path = "fig1d_conf_file.json.tmp"
     frequency = [1, 10, 50, 100, 150, 200, 220, 230, 250, 300, 350]
     methods = ["RESET", "STREAM"]
     def prepare_config(freq):

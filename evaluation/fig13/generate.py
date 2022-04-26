@@ -90,7 +90,7 @@ def SubplotB():
     resource_dir = os.getenv("REEF_RESOURCE_DIR")
     queue_size = [10, 100, 200, 300, 400, 500]
     methods = ["reset", "wait"]
-    temp_file_path = "/tmp/reef_fig13_temp.json"
+    temp_file_path = "reef_fig13_temp.json.tmp"
     
     jfile = open(resource_dir+"/bench_kernel/bench_kernel.json", "r")
     base_json = json.loads(jfile.read())
